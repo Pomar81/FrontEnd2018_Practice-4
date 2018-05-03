@@ -2,15 +2,20 @@
 // Change us!
 
 function status(response) {
+    if (!response.ok) {
+        throw new Error(response.statusText);
+    }
     return response;
 }
 
 function json(response) {
-    return response;
+    return response.json();
 }
 
 function getJSON(url) {
-    return null;
+    return window.fetch(url)
+        .then(status)
+        .then(json);
 }
 
 

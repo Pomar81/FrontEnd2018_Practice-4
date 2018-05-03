@@ -1,8 +1,11 @@
 
 export default function showDialog(dialogEl) {
+    const btnYes = dialogEl.querySelector("button.yes");
+    const btnNo = dialogEl.querySelector("button.no");
     $(dialogEl).modal("show");
-
-    // Change me!
-
-    return new Promise();
+    const promise = new Promise((resolve, reject) => {
+        btnYes.onclick = resolve;
+        btnNo.onclick = reject;
+    });
+    return promise;
 }

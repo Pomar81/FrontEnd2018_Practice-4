@@ -8,7 +8,7 @@ app.use(cors());
 app.use(bodyParser.json());
 app.use((req, res, next) => { setTimeout(next, 500); });
 
-let cart = [];
+let cart = [{ id: 1, name: "Item 1", price: 15, quantity: 10 }, { id: 19, name: "Item 19", price: 3, quantity: 293 }];
 
 function isItemInCart(itemId) {
     return cart.some(item => item.id === itemId);
